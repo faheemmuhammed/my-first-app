@@ -11,6 +11,11 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No Server were Created!';
   serverName = 'TestServer';
   serverCreated = false;
+  servers = ['TestServer', 'TestServer 2'];
+
+  toggled = false;
+  buttonLog = [];
+
 
 
   constructor() {
@@ -24,7 +29,14 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was Created! and Server Name is' + this.serverName;
+  }
+
+  onToggle() {
+    this.toggled = !this.toggled;
+    // this.buttonLog.push(this.buttonLog.length + 1);
+    this.buttonLog.push(new Date());
   }
 
 

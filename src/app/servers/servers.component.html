@@ -12,5 +12,12 @@
 <ng-template #noServer>
     <p>Server is not created</p>
 </ng-template>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
+
+<hr>
+
+<button class="btn btn-primary" (click)="onToggle()" >Display Details</button>
+<p *ngIf="toggled">may the force be with you!</p>
+<p *ngFor="let log of buttonLog; let i = index" 
+    [ngStyle]="{'background-color' : i>= 4 ? 'blue' : 'transparent' }"
+    [ngClass]="{white: i>= 4}">{{log}}</p>
